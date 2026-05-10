@@ -8,68 +8,274 @@ export default function HeroBanner() {
   return (
     <section
       id="hero"
-      className="px-6 md:px-10 pt-16 pb-20 md:pt-24 md:pb-28"
-      style={{
-        background: "radial-gradient(ellipse at 35% 60%, #1a3a1c 0%, #0D1B0F 65%)",
-      }}
+      className="
+      relative
+
+      px-8
+      md:px-16
+      xl:px-24
+
+      pt-32
+      pb-20
+
+      min-h-screen
+
+      flex
+      items-center
+    "
     >
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        {/* Left: copy */}
-        <div className="flex-1 min-w-0">
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-[#E8EDE8] mb-5">
-            Earth's<br />Exhale
+      <div
+        className="
+        w-full
+        max-w-[1600px]
+        mx-auto
+
+        grid
+        md:grid-cols-2
+
+        items-center
+        gap-10
+      "
+      >
+        {/* LEFT */}
+        <div className="relative z-20">
+
+          <h1
+            className="
+            font-serif
+
+            text-[5rem]
+            md:text-[7rem]
+            xl:text-[8rem]
+
+            leading-[0.9]
+
+            font-bold
+
+            tracking-[-4px]
+
+            text-[#EAEAEA]
+
+            mb-8
+          "
+          >
+            Earth’s
+            <br />
+            Exhale
           </h1>
-          <p className="text-[#7A9E7A] text-sm md:text-base max-w-sm mb-8 leading-relaxed">
-            "Earth Exhale" symbolizes the purity and vitality of the Earth's
-            natural environment and its essential role in sustaining life.
+
+          <p
+            className="
+            text-[#A7B9A6]
+
+            text-lg
+            md:text-[1.45rem]
+
+            leading-[1.7]
+
+            max-w-[38rem]
+
+            mb-10
+          "
+          >
+            "Earth Exhale" symbolizes the purity and vitality
+            of the Earth's natural environment and its
+            essential role in sustaining life.
           </p>
-          <div className="flex flex-wrap gap-3">
+
+          <div className="flex items-center gap-5 mb-14">
             <BtnPrimary>Buy Now</BtnPrimary>
+
             <BtnOutline>
-              <Play size={14} fill="currentColor" />
+              <Play size={18} fill="currentColor" />
               Live Demo...
             </BtnOutline>
           </div>
 
-          {/* Review badge */}
-          <div className="mt-10 inline-flex items-start gap-3 bg-[#162118] border border-[#2D4A2F] rounded-2xl p-3 pr-5">
-            <img
-              src="https://i.pravatar.cc/80?img=47"
-              alt="Ronnie Hamill"
-              className="w-10 h-10 rounded-full object-cover flex-shrink-0"
-            />
-            <div>
-              <p className="text-xs font-semibold text-[#E8EDE8]">Ronnie Hamill</p>
-              <Stars rating={5} />
-              <p className="text-[#7A9E7A] text-xs max-w-[180px] leading-snug mt-1">
-                I can't express how thrilled I am with my new natural plants!
-                They bring such a fresh and vibrant energy to my home.
-              </p>
+          {/* REVIEW */}
+          <div
+            className="
+            w-[24rem]
+
+            rounded-[2rem]
+
+            border
+            border-white/10
+
+            bg-[#162118]/70
+
+            backdrop-blur-xl
+
+            p-5
+
+            shadow-[0_10px_50px_rgba(0,0,0,0.45)]
+          "
+          >
+            <div className="flex gap-4">
+              <img
+                src="https://i.pravatar.cc/100?img=47"
+                alt="Ronnie Hamill"
+                className="
+                w-14
+                h-14
+
+                rounded-full
+                object-cover
+              "
+              />
+
+              <div>
+                <h3 className="text-lg font-semibold text-white">
+                  Ronnie Hamill
+                </h3>
+
+                <Stars rating={5} />
+
+                <p
+                  className="
+                  mt-3
+
+                  text-[#B8C4B7]
+
+                  text-sm
+                  leading-relaxed
+                "
+                >
+                  I can't express how thrilled I am with my new
+                  natural plants! They bring such a fresh and
+                  vibrant energy to my home.
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Right: hero image + floating card */}
-        <div className="relative flex-1 hidden md:flex justify-center items-center min-w-[280px]">
+        {/* RIGHT */}
+        <div
+          className="
+          relative
+
+          hidden
+          md:flex
+
+          justify-center
+          items-center
+        "
+        >
+          {/* BIG PLANT */}
           <img
-            src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=500&q=80"
-            alt="Hero plant"
-            className="w-64 h-64 object-contain drop-shadow-2xl relative z-10"
+            src="/plants/aglaonema.png"
+            alt="Plant"
+
+            className="
+            w-[42rem]
+
+            object-contain
+
+            drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]
+
+            relative
+            right-[-3rem]
+          "
           />
 
-          {/* Floating product card */}
-          <div className="absolute top-0 right-0 bg-[#162118] border border-[#2D4A2F] rounded-2xl p-4 w-44 shadow-2xl z-20">
-            <img
-              src="https://images.unsplash.com/photo-1602923668104-8f9e03a0e6a8?w=300&q=80"
-              alt="Aglaonema plant"
-              className="w-full h-24 object-contain mb-2"
-            />
-            <p className="text-[#7A9E7A] text-[10px] mb-0.5">Indoor Plant</p>
-            <p className="text-[#E8EDE8] text-xs font-semibold mb-2">Aglaonema plant</p>
-            <BtnPrimary className="w-full justify-center text-xs py-1.5 !px-0">
+          {/* CARD */}
+          <div
+            className="
+            absolute
+
+            right-[-1rem]
+            top-[5rem]
+
+            w-[22rem]
+
+            rounded-[3rem]
+
+            border
+            border-white/15
+
+            bg-[#182319]/55
+
+            backdrop-blur-2xl
+
+            p-7
+
+            shadow-[0_25px_80px_rgba(0,0,0,0.5)]
+          "
+          >
+            <div className="flex justify-center -mt-28 mb-2">
+              <img
+                src="/plants/aglaonema.png"
+                alt="Plant"
+
+                className="
+                w-[18rem]
+
+                object-contain
+
+                drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]
+              "
+              />
+            </div>
+
+            <p className="text-white/70 text-lg mb-2">
+              Indoor Plant
+            </p>
+
+            <div className="flex items-center justify-between gap-4">
+              <h2
+                className="
+                text-[3.2rem]
+
+                leading-[0.95]
+
+                font-light
+
+                tracking-[-2px]
+
+                text-white
+              "
+              >
+                Aglaonema
+                <br />
+                plant
+              </h2>
+
+              <span className="text-5xl text-white/80">
+                ›
+              </span>
+            </div>
+
+            <button
+              className="
+              mt-8
+
+              w-full
+              h-[5.5rem]
+
+              rounded-[2rem]
+
+              border-2
+              border-white/70
+
+              text-[2.2rem]
+              font-light
+
+              text-white
+
+              bg-white/5
+
+              transition-all
+              duration-300
+
+              hover:bg-white
+              hover:text-black
+            "
+            >
               Buy Now
-            </BtnPrimary>
-            <div className="mt-2 flex justify-center">
+            </button>
+
+            <div className="mt-7 flex justify-center">
               <Dots count={3} active={0} />
             </div>
           </div>

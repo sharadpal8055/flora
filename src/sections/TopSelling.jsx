@@ -7,9 +7,9 @@ export default function TopSelling() {
   const [selected, setSelected] = useState(1);
 
   return (
-    <section id="top-selling" className="px-6 md:px-10 py-16 max-w-6xl mx-auto">
+  <section id="top-selling" className="px-8 md:px-16 py-32 max-w-[1700px] mx-auto">
       <SectionTitle>Our Top Selling Plants</SectionTitle>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center">
         {PLANTS.map((p, i) => (
           <PlantCard
             key={p.id}

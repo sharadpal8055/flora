@@ -13,14 +13,14 @@ export default function O2Section() {
   const prev = () => setPage((p) => (p > 1 ? p - 1 : MAX));
 
   return (
-    <section id="o2" className="px-6 md:px-10 py-16 max-w-6xl mx-auto">
+  <section id="o2" className="px-8 md:px-16 py-32 max-w-[1700px] mx-auto">
       <SectionTitle>Our Best o2</SectionTitle>
 
-      <div className="bg-[#162118] border border-[#243226] rounded-[1.5rem] p-6 md:p-10 flex flex-col md:flex-row items-center gap-8">
+     <div className="relative overflow-hidden bg-white/[0.03] border border-white/10 rounded-[4rem] px-14 py-14 flex flex-col md:flex-row items-center gap-14 backdrop-blur-xl">
         {/* Plant image */}
-        <div className="flex-shrink-0 w-52 md:w-64">
+      <div className="flex-shrink-0 w-[420px]">
           <img
-            src="https://images.unsplash.com/photo-1612540139150-4c54d9b36db1?w=400&q=80"
+            src="/plants/aglaonema.png"
             alt="O2 plant"
             className="w-full object-contain drop-shadow-2xl"
           />
@@ -28,15 +28,15 @@ export default function O2Section() {
 
         {/* Content */}
         <div className="flex-1">
-          <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#E8EDE8] mb-4 leading-snug">
+         <h3 className="font-bold text-white text-6xl leading-tight mb-8">
             We Have Small And Best O2 Plants Collection's
           </h3>
-          <p className="text-[#7A9E7A] text-sm leading-relaxed mb-3">
+         <p className="text-[#d4d4d4] text-2xl leading-relaxed mb-6">
             Oxygen-producing plants, often referred to as "O2 plants," are those
             that release oxygen into the atmosphere through the process of
             photosynthesis.
           </p>
-          <p className="text-[#7A9E7A] text-sm leading-relaxed mb-6">
+          <p className="text-[#d4d4d4] text-2xl leading-relaxed mb-6">
             Many plants can help filter out pollutants and toxins from the air,
             such as formaldehyde, benzene, and trichloroethylene. This makes the
             air cleaner and healthier to breathe.
