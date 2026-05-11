@@ -4,121 +4,58 @@ import { ShoppingBag } from "lucide-react";
 
 export default function TrendingCard({ plant }) {
   return (
-    <div
-      className={`
-      relative
-
-      overflow-hidden
-
-      rounded-[4rem]
-
-      border
-      border-white/10
-
-      bg-white/[0.03]
-
+    <div className="
+      relative overflow-hidden
+      rounded-[3.5rem]
+      border border-white/10
+      bg-white/[0.04]
       backdrop-blur-xl
-
-      min-h-[420px]
-
-      px-14
-      py-10
-
-      flex
-      flex-col
-      md:flex-row
-
-      items-center
-      justify-between
-
+      min-h-[400px]
+      px-10 md:px-16 py-12
+      flex flex-col md:flex-row
+      items-center justify-between
       gap-10
+      mb-10
+      transition-all duration-500
+      hover:bg-white/[0.07]
+      hover:border-white/20
+      group
+    ">
+      {/* INNER GLOW */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(120,200,120,0.07),transparent_65%)]" />
 
-      mb-14
-    `}
-    >
-      {/* glow */}
-      <div
-        className="
-        absolute
-        inset-0
-
-        bg-[radial-gradient(circle_at_center,rgba(160,255,160,0.08),transparent_60%)]
-
-        z-0
-      "
-      />
-
-      {/* image */}
-      <div className="relative z-10 flex-1 flex justify-center">
+      {/* PLANT IMAGE */}
+      <div className={`relative z-10 flex-1 flex justify-center ${plant.reverse ? "md:order-2" : ""}`}>
         <img
           src={plant.img}
           alt={plant.name}
           className="
-          w-[360px]
-          md:w-[430px]
-
-          object-contain
-
-          drop-shadow-[0_30px_40px_rgba(0,0,0,0.55)]
-        "
+            w-[280px] md:w-[380px] lg:w-[420px]
+            object-contain
+            drop-shadow-[0_30px_45px_rgba(0,0,0,0.6)]
+            transition-all duration-500
+            group-hover:scale-[1.04]
+          "
         />
       </div>
 
-      {/* content */}
-      <div className="relative z-10 flex-1">
-        <h3
-          className="
-          text-white
-
-          font-bold
-
-          text-5xl
-
-          leading-tight
-
-          mb-6
-        "
-        >
+      {/* CONTENT */}
+      <div className={`relative z-10 flex-1 ${plant.reverse ? "md:order-1" : ""}`}>
+        <h3 className="text-white font-bold text-[2.4rem] md:text-[3rem] leading-tight mb-5">
           {plant.name}
         </h3>
-
-        <p
-          className="
-          text-[#d2d2d2]
-
-          text-2xl
-
-          leading-relaxed
-
-          mb-8
-
-          max-w-[650px]
-        "
-        >
+        <p className="text-[#d2d2d2] text-[1.15rem] md:text-[1.3rem] leading-relaxed mb-7 max-w-[520px]">
           {plant.desc}
         </p>
-
-        <h4
-          className="
-          text-white
-
-          text-6xl
-
-          font-bold
-
-          mb-8
-        "
-        >
+        <h4 className="text-white text-[2.8rem] md:text-[3.5rem] font-bold mb-8 tracking-[-1px]">
           {plant.price}
         </h4>
-
         <div className="flex items-center gap-5">
-          <BtnOutline className="h-[74px] px-12 text-2xl">
+          <BtnOutline className="h-[68px] px-10 text-[1.15rem]">
             Explore
           </BtnOutline>
-
-          <IconBtn className="w-[74px] h-[74px]">
-            <ShoppingBag size={28} />
+          <IconBtn>
+            <ShoppingBag size={26} />
           </IconBtn>
         </div>
       </div>

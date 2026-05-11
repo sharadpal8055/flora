@@ -1,12 +1,15 @@
-function useFadeIn() {
+import { useEffect, useRef } from "react";
+
+export default function useFadeIn(threshold = 0.1) {
   const ref = useRef(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     el.style.opacity = "0";
-    el.style.transform = "translateY(18px)";
-    el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    el.style.transform = "translateY(24px)";
+    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -16,11 +19,12 @@ function useFadeIn() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold }
     );
+
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [threshold]);
 
   return ref;
 }

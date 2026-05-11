@@ -4,9 +4,9 @@ import { REVIEWS } from "../data/reviews";
 
 export default function CustomerReviews() {
   return (
-   <section id="reviews" className="px-8 md:px-16 py-32 max-w-[1600px] mx-auto">
+    <section id="reviews" className="px-8 md:px-14 lg:px-20 py-28 max-w-[1700px] mx-auto">
       <SectionTitle>Customer Review</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {REVIEWS.map((r) => (
           <TestimonialCard key={r.id} review={r} />
         ))}

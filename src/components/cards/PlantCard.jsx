@@ -1,4 +1,4 @@
-import { ShoppingBag, ChevronRight } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 
 export default function PlantCard({ plant, selected, onClick }) {
   return (
@@ -9,199 +9,90 @@ export default function PlantCard({ plant, selected, onClick }) {
       tabIndex={0}
       aria-label={plant.name}
       aria-pressed={selected}
-      className="
-      relative
-      overflow-hidden
-
-      w-[320px]
-      h-[520px]
-
-      rounded-[3rem]
-      cursor-pointer
-
-      border border-white/10
-
-      bg-[linear-gradient(180deg,#1c261d_0%,#111811_100%)]
-
-      transition-all
-      duration-500
-
-      hover:-translate-y-2
-      hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]
-
-      group
-    "
-    >
-      {/* BACKGROUND */}
-      <div
-        className="
-        absolute
-        inset-0
-        z-0
-
-        bg-[radial-gradient(circle_at_top,#3b5b3f_0%,transparent_55%)]
-
-        opacity-60
-      "
-      />
-
-      {/* GLOW */}
-      <div
-        className="
-        absolute
-        -top-24
-        left-1/2
-        -translate-x-1/2
-
-        w-[420px]
-        h-[220px]
-
-        bg-white/20
-        blur-[120px]
-        rounded-full
-
-        opacity-40
-
-        z-0
-      "
-      />
-
-      {/* IMAGE */}
-      <div
-        className="
+      className={`
         relative
-        z-20
+        w-full
+        max-w-[420px]
+        mx-auto
+        flex flex-col
 
-        flex
-        justify-center
+        rounded-[2rem]
+        cursor-pointer
+        outline-none
 
-        pt-4
-      "
-      >
+        border
+        ${selected ? "border-white/25" : "border-white/10"}
+
+        bg-[linear-gradient(175deg,#1e2d1f_0%,#111811_100%)]
+
+        transition-all duration-500
+        hover:-translate-y-3
+        hover:shadow-[0_30px_70px_rgba(0,0,0,0.6)]
+        hover:border-white/20
+
+        focus-visible:ring-2 focus-visible:ring-white/40
+
+        overflow-hidden
+        group
+      `}
+    >
+      {/* RADIAL TOP GLOW */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,#3b5b3f_0%,transparent_55%)] opacity-60 pointer-events-none" />
+
+      {/* PLANT IMAGE — fills top half, overflows slightly */}
+      <div className="relative z-10 flex justify-center items-end pt-6 pb-0 h-[280px]">
         <img
           src={plant.img}
           alt={plant.name}
-          className="
-          relative
-          z-20
-
-          w-[300px]
-          h-[300px]
-
-          object-contain
-
-          drop-shadow-[0_25px_35px_rgba(0,0,0,0.65)]
-
-          transition-all
-          duration-500
-
-          group-hover:scale-105
-        "
           loading="lazy"
+          className="
+            w-auto h-[270px]
+            max-w-[90%]
+            object-contain
+            drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]
+            transition-all duration-500
+            group-hover:scale-[1.05]
+          "
         />
       </div>
 
-      {/* CONTENT */}
-      <div
-        className="
-        absolute
-        bottom-0
-        left-0
+      {/* TEXT CONTENT */}
+      <div className="relative z-20 px-8 pt-6 pb-8 flex flex-col flex-1">
 
-        z-30
+        {/* NAME */}
+        <h2 className="text-white text-[1.7rem] font-normal leading-snug mb-3">
+          {plant.name}
+        </h2>
 
-        w-full
-
-        px-8
-        pb-10
-      "
-      >
-        {/* SMALL TEXT */}
-        <p
-          className="
-          text-white/70
-          text-[20px]
-          font-light
-          mb-2
-        "
-        >
-          Indoor Plant
+        {/* DESCRIPTION */}
+        <p className="text-white/55 text-[1rem] leading-relaxed mb-5 flex-1">
+          {plant.desc}
         </p>
 
-        {/* TITLE */}
-        <div className="flex items-center justify-between gap-4">
-          <h2
+        {/* PRICE + CART ROW */}
+        <div className="flex items-center justify-between mt-auto">
+          <span className="text-white text-[1.8rem] font-normal tracking-[-0.5px]">
+            {plant.price}
+          </span>
+
+          <button
+            type="button"
+            onClick={(e) => e.stopPropagation()}
+            aria-label="Add to cart"
             className="
-            text-white
-            text-[42px]
-            leading-[1.05]
-            font-light
-            tracking-[-1.5px]
-          "
+              w-[52px] h-[52px]
+              rounded-xl
+              border border-white/25
+              bg-white/5
+              flex items-center justify-center
+              text-white/70
+              transition-all duration-300
+              hover:bg-white hover:text-black hover:border-white
+              active:scale-[0.96]
+            "
           >
-            Aglaonema plant
-          </h2>
-
-          <ChevronRight
-            size={42}
-            strokeWidth={1.7}
-            className="text-white/80 shrink-0"
-          />
-        </div>
-
-        {/* BUTTON */}
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            console.log("Buy Now Clicked");
-          }}
-          className="
-          mt-8
-
-          w-full
-          h-[78px]
-
-          rounded-[1.7rem]
-
-          border-2
-          border-white/80
-
-          text-white
-          text-[30px]
-          font-light
-
-          backdrop-blur-md
-          bg-white/5
-
-          transition-all
-          duration-300
-
-          hover:bg-white
-          hover:text-black
-
-          active:scale-[0.98]
-
-          flex
-          items-center
-          justify-center
-          gap-3
-
-          relative
-          z-50
-        "
-        >
-          <ShoppingBag size={24} strokeWidth={1.8} />
-          Buy Now
-        </button>
-
-        {/* DOTS */}
-        <div className="flex items-center justify-center gap-3 mt-8">
-          <span className="w-10 h-2 rounded-full bg-white" />
-
-          <span className="w-2.5 h-2.5 rounded-full bg-white/60" />
-
-          <span className="w-2.5 h-2.5 rounded-full bg-white/60" />
+            <ShoppingBag size={20} strokeWidth={1.8} />
+          </button>
         </div>
       </div>
     </div>
