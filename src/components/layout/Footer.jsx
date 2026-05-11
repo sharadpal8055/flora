@@ -1,14 +1,21 @@
 import { useState } from "react";
 
+const SOCIAL_LINKS = [
+  { src: "/images/facebook.png", alt: "Facebook",  href: "#" },
+  { src: "/images/insta.png",    alt: "Instagram",  href: "#" },
+  { src: "/images/wp.png",       alt: "WhatsApp",   href: "#" },
+
+];
+
+const QUICK_LINKS = [
+  { label: "Home",              href: "#hero"        },
+  { label: "Type's Of plant's", href: "#top-selling" },
+  { label: "Contact",           href: "#footer"      },
+  { label: "Privacy",           href: "#"            },
+];
+
 export default function Footer() {
   const [email, setEmail] = useState("");
-
-  const quickLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "Type's Of plant's", href: "#top-selling" },
-    { label: "Contact", href: "#footer" },
-    { label: "Privacy", href: "#" },
-  ];
 
   return (
     <footer
@@ -28,18 +35,36 @@ export default function Footer() {
                 FloraVision<span className="text-white/50">.</span>
               </span>
             </div>
+
             <p className="text-white/50 text-[1rem] leading-[1.8] max-w-[280px] mb-7">
               "From lush indoor greens to vibrant outdoor blooms, our plants are
               crafted to thrive and elevate your living environment."
             </p>
-            <div className="flex gap-8">
-              {["FB", "TW", "LI"].map((s) => (
+
+            {/* SOCIAL ICON BUTTONS */}
+            <div className="flex items-center gap-4">
+              {SOCIAL_LINKS.map(({ src, alt, href }) => (
                 <a
-                  key={s}
-                  href="#"
-                  className="text-white/60 text-[1rem] font-semibold tracking-widest hover:text-white transition-colors duration-200"
+                  key={alt}
+                  href={href}
+                  aria-label={alt}
+                  className="
+                    w-10 h-10
+                    rounded-full
+                    border border-white/15
+                    bg-white/5
+                    flex items-center justify-center
+                    transition-all duration-300
+                    hover:border-white/50
+                    hover:bg-white/15
+                    hover:scale-110
+                  "
                 >
-                  {s}
+                  <img
+                    src={src}
+                    alt={alt}
+                    className="w-[18px] h-[18px] object-contain opacity-70 transition-opacity duration-200 hover:opacity-100"
+                  />
                 </a>
               ))}
             </div>
@@ -51,7 +76,7 @@ export default function Footer() {
               Quick Link's
             </h4>
             <ul className="flex flex-col gap-4">
-              {quickLinks.map((l) => (
+              {QUICK_LINKS.map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
@@ -91,23 +116,26 @@ export default function Footer() {
                   transition-colors
                 "
               />
-              <button className="
-                bg-white text-black
-                text-[0.85rem] font-bold
-                tracking-widest
-                px-6 py-4
-                rounded-r-lg
-                border border-white
-                hover:bg-transparent hover:text-white
-                transition-all duration-300
-              ">
+              <button
+                type="button"
+                className="
+                  bg-white text-black
+                  text-[0.85rem] font-bold
+                  tracking-widest
+                  px-6 py-4
+                  rounded-r-lg
+                  border border-white
+                  hover:bg-transparent hover:text-white
+                  transition-all duration-300
+                "
+              >
                 SUBSCRIBE
               </button>
             </div>
           </div>
         </div>
 
-        {/* DIVIDER */}
+        {/* COPYRIGHT ROW */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-[0.9rem]">
             © 2024 FloraVision. All rights reserved.
